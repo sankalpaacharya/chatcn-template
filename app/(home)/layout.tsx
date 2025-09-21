@@ -6,11 +6,11 @@ export default function layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex border">
-      <aside className="w-64">
+    <div className="flex">
+      <aside className="w-72">
         <Sidebar />
       </aside>
-      <div className="grow border relative">{children}</div>
+      <div className="grow relative">{children}</div>
     </div>
   );
 }
