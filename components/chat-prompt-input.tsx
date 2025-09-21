@@ -17,7 +17,7 @@ import {
 
 export default function ChatPromptInput() {
   return (
-    <div className="max-w-3xl mx-auto mt-10">
+    <div className="max-w-3xl mx-auto">
       <PromptInput>
         <PromptInputTextArea placeholder="What do you want to know?" />
         <PromptInputActions className="justify-between pt-2">
