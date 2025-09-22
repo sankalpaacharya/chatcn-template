@@ -4,6 +4,8 @@ import {
   Search,
   SquarePen,
   FolderClosed,
+  AudioLines,
+  Image,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
@@ -34,6 +36,16 @@ const SideBarLinks: SideBarProps[] = [
     Icon: FolderClosed,
   },
   {
+    label: "Voice",
+    href: "/v",
+    Icon: AudioLines,
+  },
+  {
+    label: "Image",
+    href: "/i",
+    Icon: Image,
+  },
+  {
     type: "HEADING",
     label: "Chats",
   },
@@ -41,26 +53,26 @@ const SideBarLinks: SideBarProps[] = [
 
 export default function Sidebar() {
   return (
-    <div className="p-4 flex flex-col h-full border-r">
+    <div className="p-4 flex flex-col h-full border-r w-80">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <span className="font-semibold tracking-tight text-sm text-muted-foreground">
           Chatcn
         </span>
         <button className="text-muted-foreground hover:bg-muted p-2 rounded-lg transition-colors cursor-e-resize">
-          <PanelRightOpen size={18} />
+          <PanelRightOpen size={20} />
         </button>
       </div>
 
       {/* Search */}
       <div className="relative mb-4">
         <Search
-          size={18}
+          size={20}
           className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
         />
         <Input
           placeholder="Search"
-          className="shadow-none outline-none rounded-xl h-10 pl-9 text-sm w-full"
+          className="shadow-none outline-none rounded-full h-12 pl-10 text-sm w-full"
         />
       </div>
 
@@ -97,9 +109,9 @@ function SideBarLink({ label, href, Icon }: SideBarLinkItem) {
   return (
     <Link
       href={href}
-      className="hover:bg-muted/70 flex gap-3 items-center px-3 py-2 rounded-lg transition-colors"
+      className="hover:bg-muted/70 flex gap-3 items-center px-3 py-3 rounded-lg transition-colors"
     >
-      <Icon size={18} className="text-muted-foreground" />
+      <Icon size={20} className="text-muted-foreground" />
       <p className="text-sm font-medium tracking-wide">{label}</p>
     </Link>
   );

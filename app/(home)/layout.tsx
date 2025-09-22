@@ -7,7 +7,7 @@ export default function layout({
 }>) {
   return (
     <div className="flex">
-      <aside className="w-72">
+      <aside>
         <Sidebar />
       </aside>
       <div className="grow relative">{children}</div>

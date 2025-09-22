@@ -29,7 +29,7 @@ export function Thread({ children, className }: ThreadProps) {
     <ThreadContext.Provider value={{ open, setOpen }}>
       <div
         className={cn(
-          "group px-3 py-2 rounded-md flex gap-2 transition-colors hover:bg-accent items-center",
+          "group px-3 py-2 rounded-md flex gap-2 transition-colors hover:bg-accent items-center justify-between",
           open ? "bg-accent/50" : "",
           className
         )}
@@ -47,7 +47,7 @@ export function ThreadContent({
   children: React.ReactNode;
   className?: string;
 }) {
-  return <div className={cn("", className)}>{children}</div>;
+  return <div className={cn("truncate", className)}>{children}</div>;
 }
 
 export function ThreadAction({
