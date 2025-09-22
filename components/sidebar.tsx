@@ -68,18 +68,16 @@ function useSideBarContext() {
 }
 
 export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState(false);
-  console.log(isOpen, "this is being callllled");
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <SideBarContext.Provider value={{ isOpen }}>
       <div
         className={cn(
-          "p-4 flex flex-col h-full border-r w-80 transition-all justify-center",
+          "p-4 flex flex-col h-full border-r w-80 transition-all justify-center ease-in-out duration-300",
           isOpen ? "w-80" : "w-20"
         )}
       >
-        {/* Header */}
         <div className="flex justify-between items-center mb-4">
           <span
             className={cn(
@@ -97,15 +95,26 @@ export default function Sidebar() {
           </button>
         </div>
 
-        <div className={cn("relative mb-4", !isOpen ? "hidden" : "")}>
-          <Search
-            size={20}
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
-          />
-          <Input
-            placeholder="Search"
-            className="shadow-none outline-none rounded-full h-12 pl-10 text-sm w-full"
-          />
+        <div className="relative mb-4 flex items-center">
+          {isOpen ? (
+            <>
+              <Search
+                size={20}
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+              />
+              <Input
+                placeholder="Search"
+                className="shadow-none outline-none rounded-full h-12 pl-10 text-sm w-full transition-all"
+              />
+            </>
+          ) : (
+            <button
+              onClick={() => setIsOpen(true)}
+              className="p-3 rounded-full hover:bg-muted transition-colors flex justify-center items-center"
+            >
+              <Search size={20} />
+            </button>
+          )}
         </div>
 
         {/* Links & Headings */}
