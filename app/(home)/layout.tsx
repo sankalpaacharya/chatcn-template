@@ -10,7 +10,7 @@ export default function layout({
       <aside>
         <Sidebar />
       </aside>
-      <div className="grow relative">{children}</div>
+      <div className="grow relative mx-auto max-w-4xl">{children}</div>
     </div>
   );
 }
