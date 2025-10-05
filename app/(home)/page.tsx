@@ -1,16 +1,10 @@
-import ChatPromptInput from "@/components/chat-prompt-input";
-import Conversation from "@/components/conversation";
+import LoginCard from "@/components/login-card";
 
-export default function Home() {
+export default function Page() {
   return (
     <div className="flex flex-col min-h-screen relative">
-      <div className="grow p-3 pt-12">
-        <Conversation />
-      </div>
-      <div className="sticky bottom-0 w-full">
-        <div className="p-3">
-          <ChatPromptInput />
-        </div>
+      <div className="flex-1 flex items-center justify-center pt-16 md:pt-0 px-3 md:px-0">
+        <LoginCard />
       </div>
     </div>
   );
