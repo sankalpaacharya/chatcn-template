@@ -7,7 +7,7 @@ import {
 
 export default function Conversation() {
   return (
-    <div className="space-y-10">
+    <div className="space-y-8">
       <Message className="justify-end">
         <MessageAvatar
           src="https://github.com/sankalpaacharya.png"
