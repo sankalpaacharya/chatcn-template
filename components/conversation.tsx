@@ -19,7 +19,7 @@ export default async function Conversation() {
       <Message className="items-center">
         <MessageAvatar src={user.image || ""} alt="AI" />
         <MessageContent className="bg-transparent">
-          Hello, I'm {user.name}
+          Hello Im {user.name}
         </MessageContent>
       </Message>
 
