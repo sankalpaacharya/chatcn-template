@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { authClient } from "@/lib/auth-client";
 
 const GoogleIcon = () => (
   <svg
@@ -36,9 +36,14 @@ const GoogleIcon = () => (
 );
 
 export default function LoginCard() {
-  const handleGoogleLogin = () => {
-    // Add your Google authentication logic here
-    console.log("Google login clicked");
+  const handleGithubLogin = () => {
+    authClient.signIn.social({
+      provider: "github",
+      callbackURL: "/chat",
+      errorCallbackURL: "/error",
+      newUserCallbackURL: "/welcome",
+      disableRedirect: true,
+    });
   };
 
   return (
@@ -53,10 +58,10 @@ export default function LoginCard() {
         <Button
           variant="outline"
           className="w-full h-11 cursor-pointer"
-          onClick={handleGoogleLogin}
+          onClick={handleGithubLogin}
         >
           <GoogleIcon />
-          Continue with Google
+          Continue with Github
         </Button>
       </CardContent>
     </Card>

@@ -4,28 +4,24 @@ import {
   MessageAvatar,
   MessageContent,
 } from "@/components/chatcn/message";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
-export default function Conversation() {
+export default async function Conversation() {
+  const user = await auth.api.getSession({ headers: await headers() });
+  if (!user) {
+    redirect("/");
+  }
+  console.log("this is can session user", user);
   return (
     <div className="space-y-8">
-      <Message className="justify-end">
-        <MessageAvatar
-          src="https://github.com/sankalpaacharya.png"
-          alt="Sankalpa Acharya"
-        />
-        <MessageContent>
-          Hey AI, can you help me with my project?
-        </MessageContent>
-      </Message>
-
-      <Message>
+      <Message className="items-center">
         <MessageAvatar src="" alt="AI" />
-        <MessageContent className="bg-transparent">
-          Of course! What are you working on right now?
-        </MessageContent>
+        <MessageContent className="bg-transparent">Hello</MessageContent>
       </Message>
 
-      <Message className="justify-end">
+      {/* <Message className="justify-end">
         <MessageAvatar
           src="https://github.com/sankalpaacharya.png"
           alt="Sankalpa Acharya"
@@ -58,7 +54,7 @@ export default function Conversation() {
           We can fix that by adding a `useEffect` to listen for new transactions
           and re-render your chart.
         </MessageContent>
-      </Message>
+      </Message> */}
     </div>
   );
 }

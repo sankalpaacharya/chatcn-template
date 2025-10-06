@@ -7,12 +7,14 @@ import {
   FolderClosed,
   AudioLines,
   Image,
+  LogOut,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import ChatThread from "./chat-thread";
 import { createContext, useState, useContext } from "react";
 import { cn } from "@/lib/utils";
+import { authClient } from "@/lib/auth-client";
 
 type SideBarLinkItem = {
   label: string;
@@ -74,11 +76,11 @@ export default function Sidebar() {
     <SideBarContext.Provider value={{ isOpen }}>
       <div
         className={cn(
-          "p-4 flex flex-col h-full border-r w-80 transition-all justify-center ease-in-out duration-300",
+          "p-5 flex flex-col h-full border-r w-80 transition-all justify-center ease-in-out duration-300",
           isOpen ? "w-80" : "w-20"
         )}
       >
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex justify-between items-center mb-5">
           <span
             className={cn(
               "font-semibold tracking-tight text-sm text-muted-foreground",
@@ -89,13 +91,13 @@ export default function Sidebar() {
           </span>
           <button
             onClick={() => setIsOpen((prev) => !prev)}
-            className="text-muted-foreground hover:bg-muted p-3 rounded-lg transition-colors cursor-e-resize"
+            className="text-muted-foreground hover:bg-muted p-2.5 rounded-lg transition-colors cursor-e-resize"
           >
             <PanelRightOpen size={20} />
           </button>
         </div>
 
-        <div className="relative mb-4 flex items-center">
+        <div className="relative mb-5 flex items-center">
           {isOpen ? (
             <>
               <Search
@@ -110,7 +112,7 @@ export default function Sidebar() {
           ) : (
             <button
               onClick={() => setIsOpen(true)}
-              className="p-3 rounded-full hover:bg-muted transition-colors flex justify-center items-center"
+              className="p-2.5 rounded-full hover:bg-muted transition-colors flex justify-center items-center"
             >
               <Search size={20} />
             </button>
@@ -119,7 +121,7 @@ export default function Sidebar() {
 
         {/* Links & Headings */}
         <div className="flex-1 overflow-y-auto">
-          <div className="space-y-1">
+          <div className="space-y-1.5">
             {SideBarLinks.map((item, i) => {
               if ("href" in item && "Icon" in item) {
                 return <SideBarLink key={i} {...item} />;
@@ -130,7 +132,7 @@ export default function Sidebar() {
                   <div
                     key={i}
                     className={cn(
-                      "px-3 pt-4 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wide",
+                      "px-3 pt-5 pb-2 text-xs font-semibold text-muted-foreground uppercase tracking-wide",
                       !isOpen ? "hidden" : ""
                     )}
                   >
@@ -145,6 +147,24 @@ export default function Sidebar() {
             <ChatThread />
           </div>
         </div>
+
+        {/* Logout Button */}
+        <div className="mt-auto pt-4 border-t">
+          <button
+            onClick={() => authClient.signOut()}
+            className="hover:bg-muted/70 flex gap-3 items-center px-3 py-2.5 rounded-lg transition-colors w-full text-left"
+          >
+            <LogOut size={20} className="text-muted-foreground" />
+            <p
+              className={cn(
+                "text-sm font-medium tracking-wide",
+                !isOpen ? "hidden" : ""
+              )}
+            >
+              Logout
+            </p>
+          </button>
+        </div>
       </div>
     </SideBarContext.Provider>
   );
@@ -155,7 +175,7 @@ function SideBarLink({ label, href, Icon }: SideBarLinkItem) {
   return (
     <Link
       href={href}
-      className="hover:bg-muted/70 flex gap-3 items-center px-3 py-3 rounded-lg transition-colors"
+      className="hover:bg-muted/70 flex gap-3 items-center px-3 py-2.5 rounded-lg transition-colors"
     >
       <Icon size={20} className="text-muted-foreground" />
       <p
