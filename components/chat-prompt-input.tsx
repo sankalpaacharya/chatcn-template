@@ -19,14 +19,14 @@ export default function ChatPromptInput() {
   return (
     <PromptInput>
       <PromptInputTextArea placeholder="What do you want to know?" />
-      <PromptInputActions className="justify-between pt-2">
+      <PromptInputActions className="justify-between pt-3">
         <PromptInputAction tooltip="Add files and more">
           <DropdownMenu>
-            <DropdownMenuTrigger className="hover:bg-secondary/80 p-2 rounded-full cursor-pointer transition-colors duration-200">
+            <DropdownMenuTrigger className="hover:bg-secondary/80 p-2.5 rounded-full cursor-pointer transition-colors duration-200">
               <Plus className="size-5" />
             </DropdownMenuTrigger>
             <DropdownMenuContent
-              className="w-56 p-2 border shadow-lg bg-background/95 backdrop-blur-sm"
+              className="w-56 p-2.5 border shadow-lg bg-background/95 backdrop-blur-sm"
               align="start"
               sideOffset={8}
             >

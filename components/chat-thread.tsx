@@ -13,17 +13,17 @@ export default function ChatThread() {
     <Thread>
       <ThreadContent>React Thread Component Refactoring</ThreadContent>
       <ThreadActions>
-        <ThreadAction className="flex">
-          <Share className="" />
+        <ThreadAction className="flex gap-2.5 items-center">
+          <Share className="w-4 h-4" />
           Share
         </ThreadAction>
-        <ThreadAction className="flex">
-          <Pencil className="" />
+        <ThreadAction className="flex gap-2.5 items-center">
+          <Pencil className="w-4 h-4" />
           Rename
         </ThreadAction>
         <Separator className="my-2" />
-        <ThreadAction className="flex">
-          <Trash2 className="text-red-500" />
+        <ThreadAction className="flex gap-2.5 items-center">
+          <Trash2 className="text-red-500 w-4 h-4" />
           Delete
         </ThreadAction>
       </ThreadActions>

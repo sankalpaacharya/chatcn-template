@@ -29,7 +29,7 @@ export function Thread({ children, className }: ThreadProps) {
     <ThreadContext.Provider value={{ open, setOpen }}>
       <div
         className={cn(
-          "group px-3 py-2 rounded-md flex gap-2 transition-colors hover:bg-accent items-center justify-between",
+          "group px-3 py-2.5 rounded-md flex gap-3 transition-colors hover:bg-accent items-center justify-between",
           open ? "bg-accent/50" : "",
           className
         )}
@@ -58,7 +58,7 @@ export function ThreadAction({
   className?: string;
 }) {
   return (
-    <DropdownMenuItem className={cn("p-2", className)}>
+    <DropdownMenuItem className={cn("p-2.5", className)}>
       {children}
     </DropdownMenuItem>
   );
@@ -83,7 +83,7 @@ export function ThreadActions({
       <DropdownMenu onOpenChange={setOpen}>
         <DropdownMenuTrigger asChild>
           <button
-            className={cn("p-1 rounded-md", open && "text-accent-foreground")}
+            className={cn("p-1.5 rounded-md", open && "text-accent-foreground")}
           >
             <Ellipsis className="size-5" />
           </button>
@@ -91,7 +91,7 @@ export function ThreadActions({
         <DropdownMenuContent
           side="bottom"
           className={cn(
-            "w-56 p-2 border shadow-sm bg-background/95 backdrop-blur-sm",
+            "w-56 p-2.5 border shadow-sm bg-background/95 backdrop-blur-sm",
             className
           )}
         >

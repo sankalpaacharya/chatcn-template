@@ -4,11 +4,11 @@ import Conversation from "@/components/conversation";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen relative">
-      <div className="grow p-3 pt-12">
+      <div className="grow px-4 py-6 pt-12">
         <Conversation />
       </div>
       <div className="sticky bottom-0 w-full">
-        <div className="p-3">
+        <div className="p-4">
           <ChatPromptInput />
         </div>
       </div>

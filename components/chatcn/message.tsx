@@ -34,7 +34,7 @@ export function Message({ children, className, ...props }: MessageProps) {
   return (
     <TooltipProvider>
       <MessageContext.Provider value={{ disabled: false }}>
-        <div className={cn("flex gap-3 items-center", className)} {...props}>
+        <div className={cn("flex gap-4 items-start", className)} {...props}>
           {children}
         </div>
       </MessageContext.Provider>
@@ -66,7 +66,7 @@ export function MessageContent({ children, className }: MessageContentProps) {
   return (
     <div
       className={cn(
-        "rounded-lg p-2 text-foreground bg-secondary break-words whitespace-normal",
+        "rounded-lg px-3 py-2.5 text-foreground bg-secondary break-words whitespace-normal",
         className
       )}
     >
