@@ -1,3 +1,4 @@
+"use client";
 import {
   Card,
   CardContent,
@@ -51,29 +52,12 @@ export default function LoginCard() {
       <CardContent className="space-y-4">
         <Button
           variant="outline"
-          className="w-full h-11"
+          className="w-full h-11 cursor-pointer"
           onClick={handleGoogleLogin}
         >
           <GoogleIcon />
           Continue with Google
         </Button>
-
-        <div className="relative">
-          <div className="absolute inset-0 flex items-center">
-            <Separator className="w-full" />
-          </div>
-          <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-background px-2 text-muted-foreground">
-              Or continue with
-            </span>
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          <Button variant="ghost" className="w-full">
-            Email
-          </Button>
-        </div>
       </CardContent>
     </Card>
   );
