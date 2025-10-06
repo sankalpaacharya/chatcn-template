@@ -9,16 +9,18 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 export default async function Conversation() {
-  const user = await auth.api.getSession({ headers: await headers() });
-  if (!user) {
+  const session = await auth.api.getSession({ headers: await headers() });
+  if (!session) {
     redirect("/");
   }
-  console.log("this is can session user", user);
+  const user = session.user;
   return (
     <div className="space-y-8">
       <Message className="items-center">
-        <MessageAvatar src="" alt="AI" />
-        <MessageContent className="bg-transparent">Hello</MessageContent>
+        <MessageAvatar src={user.image || ""} alt="AI" />
+        <MessageContent className="bg-transparent">
+          Hello, I'm {user.name}
+        </MessageContent>
       </Message>
 
       {/* <Message className="justify-end">

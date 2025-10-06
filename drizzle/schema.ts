@@ -1,1 +1,1 @@
-export * from "@/drizzle/schemas/auth-schema"
+export * from "./schemas/auth-schema"

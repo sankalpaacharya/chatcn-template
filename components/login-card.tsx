@@ -36,13 +36,13 @@ const GoogleIcon = () => (
 );
 
 export default function LoginCard() {
-  const handleGithubLogin = () => {
-    authClient.signIn.social({
+  const handleGithubLogin = async () => {
+    await authClient.signIn.social({
       provider: "github",
       callbackURL: "/chat",
       errorCallbackURL: "/error",
       newUserCallbackURL: "/welcome",
-      disableRedirect: true,
+      // disableRedirect: true,
     });
   };
 
